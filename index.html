@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini Web App</title>
+</head>
+<body>
+    <h1>Telegram </h1>
+    <div id="user-info">
+        <!-- The user's Telegram ID will be displayed here -->
+    </div>
+
+    <script>
+        // Ensure the Telegram Web Apps API is available
+        window.Telegram.WebApp.ready();
+        
+        // Get user info and show it in the HTML
+        let userId = window.Telegram.WebApp.initDataUnsafe.user.id;
+        let userName = window.Telegram.WebApp.initDataUnsafe.user.username;
+        
+        // Display user ID and username
+        document.getElementById('user-info').innerHTML = `
+            <p>Your Telegram ID is: ${userId}</p>
+            <p>Your Telegram Username is: ${userName}</p>
+        `;
+        </script>
+</body>
+</html>
+
